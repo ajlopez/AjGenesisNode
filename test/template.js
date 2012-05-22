@@ -17,6 +17,8 @@ global.x = "World";
 
 assert.equal(doTemplate("Hello, ${x}"), "Hello, World");
 assert.equal(doTemplate("1 + 2 = ${1+2}"), "1 + 2 = 3");
+assert.equal(doTemplate("<#var x = 'My World'; #>Hello, ${x}"), "Hello, My World");
+assert.equal(doTemplate("<#for (var k=1; k<=6; k++) writer.write(k);#>"), "123456");
 
 function doTemplate($text)
 {
