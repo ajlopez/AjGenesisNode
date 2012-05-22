@@ -1,0 +1,15 @@
+{ "name": "AjGenesisNode"
+, "description": "AjGenesis Code Generation"
+, "keywords": [ "codegeneration", "nodejs" ]
+, "version": "0.0.1"
+, "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
+, "repository": { "type": "git", "url": "git://github.com/ajlopez/AjGenesisNode.git" }
+, "main": "./lib/index.js"
+, "engines": { "node": ">= 0.6.0 && < 0.9.0" }
+, "scripts": {
+  }
+, "dependencies": {
+  }
+, "devDependencies": {
+  }
+}
