@@ -1,14 +1,17 @@
 
 var ajgenesis = require('../../lib/ajgenesis.js');
 
-// Hard coded model
+// Model to use
 
-global.project = {
-    message: "Hello, World",
-    company: "ajlopez.com"
-};
+var model =
+{
+	project: {
+		message: "Hello, World",
+		company: "ajlopez.com"
+	}
+}
 
 // File transform
 
-ajgenesis.fileTransform(__dirname + '/ModuleVb.tpl', __dirname + '/HelloWorld.vb');
+ajgenesis.fileTransform(__dirname + '/ModuleVb.tpl', __dirname + '/HelloWorld.vb', model);
 
