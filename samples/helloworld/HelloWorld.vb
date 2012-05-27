@@ -7,7 +7,7 @@
 Module Module1
 
     Sub Main()
-        System.Console.WriteLine("Hello, World")
+        System.Console.WriteLine("Hello, world")
     End Sub
 
 End Module
