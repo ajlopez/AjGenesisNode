@@ -1,6 +1,6 @@
-# AjGenesisRb
+# AjGenesisNode
 
-AjGenesisRb is a reimplementation of AjGenesis code generation engine, in Javascript/Node.js.
+AjGenesisNode is a reimplementation of AjGenesis code generation engine, in Javascript/Node.js.
 
 [Original Project AjGenesis](http://ajgenesis.codeplex.com/)
 
