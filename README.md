@@ -6,3 +6,34 @@ AjGenesisNode is a reimplementation of AjGenesis code generation engine, in Java
 
 [Posts about Original Project](http://ajlopez.wordpress.com/category/ajgenesis/)
 
+## Installation
+Via npm on Node:
+```
+npm install ajgenesis
+```
+
+Reference in your program:
+```js
+var ajgenesis = require('ajgenesis');
+```
+
+## Development
+```
+git clone git://github.com/ajlopez/AjGenesisNode.git
+cd AjGenesisNode
+npm install
+npm test
+```
+
+## Samples
+
+TBD
+
+## Contribution
+
+Feel free to [file issues](https://github.com/ajlopez/AjGenesisNode) and submit
+[pull requests](https://github.com/ajlopez/AjGenesisNode/pulls) — contributions are
+welcome.
+
+If you submit a pull request, please be sure to add or update corresponding
+test cases, and ensure that `npm test` continues to pass.
