@@ -7,4 +7,4 @@ var ajgenesis = require('ajgenesis'),
 
 var model = { };
 
-ajgenesis.process(model, process.argv.slice(2));
+ajgenesis.process(model, process.argv.slice(2), path.resolve('.'));
