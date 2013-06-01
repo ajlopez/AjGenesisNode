@@ -1,5 +1,6 @@
 
-var ajgenesis = require('../../lib/ajgenesis.js');
+var ajgenesis = require('../..')
+    path = require('path');
 
 // Model to use
 
@@ -9,5 +10,8 @@ var model = {
 
 // File transform
 
-ajgenesis.fileTransform(__dirname + '/HelloWorldJava.tpl', __dirname + '/HelloWorld.java', model);
+ajgenesis.createDirectory('./build');
+var templatename = path.join(__dirname, 'HelloWorldJava.tpl');
+var filename = path.join(path.join(__dirname, 'build'), 'HelloWorld.java');
+ajgenesis.fileTransform(templatename, filename, model);
 
