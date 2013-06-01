@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+"use strict";
+
+var ajgenesis = require('..'),
+    path = require('path');
+
+var model = { };
+
+for (var k = 2; k < process.argv.length; k++) {
+    var arg = process.argv[k];
+    
+    if (path.extname(arg) === '.json') {
+        var filename = path.resolve(arg);
+        var name = path.basename(arg, '.json');
+        model[name] = require(filename);
+        continue;
+    }
+    
+    if (path.extname(arg) === '.tpl') {
+        var templatename = path.resolve(arg);
+        var targetname = path.resolve(process.argv[k+1]);
+        k++;
+        ajgenesis.fileTransform(templatename, targetname, model);
+    }
+}
+
