@@ -22,6 +22,7 @@ for (var k = 2; k < process.argv.length; k++) {
         var targetname = path.resolve(process.argv[k+1]);
         k++;
         ajgenesis.fileTransform(templatename, targetname, model);
+        continue;
     }
 }
 

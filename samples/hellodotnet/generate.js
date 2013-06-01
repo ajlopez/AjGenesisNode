@@ -5,7 +5,7 @@ var ajgenesis = require('../../lib/ajgenesis.js'),
 
 // Loading the project definition
 
-var	project = ajgenesis.loadModel('./project.json');
+var	project = require('./project.json');
 
 // Completing the project
 

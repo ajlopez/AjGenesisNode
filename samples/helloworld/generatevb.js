@@ -4,9 +4,7 @@ var ajgenesis = require('../..'),
 
 // Model to use
 
-var model = {
-	project: require('./project.json')
-}
+var model = require('./model.json');
 
 // File transform
 
