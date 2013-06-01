@@ -2,7 +2,7 @@
 
 "use strict";
 
-var ajgenesis = require('..'),
+var ajgenesis = require('ajgenesis'),
     path = require('path');
 
 var model = { };

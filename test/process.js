@@ -48,3 +48,17 @@ assert.ok(model.title);
 assert.ok(model.author);
 
 assert.ok(fs.existsSync(targetname));
+
+// Process simple model with name=value
+    
+var model = { };
+
+ajgenesis.process(model, ['name=Adam', 'age=800']);
+
+assert.ok(model);
+assert.ok(model.name);
+assert.equal(model.name, 'Adam');
+assert.ok(model.age);
+assert.strictEqual(model.age, 800);
+
+
