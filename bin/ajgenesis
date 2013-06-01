@@ -13,7 +13,7 @@ for (var k = 2; k < process.argv.length; k++) {
     if (path.extname(arg) === '.json') {
         var filename = path.resolve(arg);
         var name = path.basename(arg, '.json');
-        model[name] = require(filename);
+        model = require(filename);
         continue;
     }
     
