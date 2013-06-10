@@ -32,7 +32,8 @@ TBD
 ## Versions
 
 - 0.0.1: Published
-- 0.0.2: Under development, in master
+- 0.0.2: Published. New modules
+- 0.0.3: Published. New module invocation, using ajgenesis and options
 
 ## Contribution
 
