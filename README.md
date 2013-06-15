@@ -34,7 +34,7 @@ TBD
 - 0.0.1: Published
 - 0.0.2: Published. New modules
 - 0.0.3: Published. New module invocation, using ajgenesis and options
-- 0.0.4: Under development. Using runit to load modules. Calling modules with a callback.
+- 0.0.4: Published. Using runit to load modules and install them globally. Calling modules with a callback.
 
 ## Contribution
 
