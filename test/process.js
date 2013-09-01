@@ -60,4 +60,24 @@ exports['Process simple model with name=value'] = function (test) {
     test.strictEqual(model.age, 800);
 }
 
+exports['Process task with arguments'] = function (test) { 
+    test.async();
+    
+    var model = { };
+
+    ajgenesis.process(model, ['name=Adam', 'age=800', path.join('test', 'tasks', 'simple.js'), 1, 2], function (err, model) {
+        test.ok(model);
+        test.ok(model.name);
+        test.equal(model.name, 'Adam');
+        test.ok(model.age);
+        test.strictEqual(model.age, 800);
+        test.ok(model.args);
+        test.ok(Array.isArray(model.args));
+        test.equal(model.args.length, 2);
+        test.equal(model.args[0], 1);
+        test.equal(model.args[1], 2);
+        test.done();
+    });
+}
+
 
