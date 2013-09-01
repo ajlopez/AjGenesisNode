@@ -35,6 +35,8 @@ TBD
 - 0.0.2: Published. New modules
 - 0.0.3: Published. New module invocation, using ajgenesis and options
 - 0.0.4: Published. Using runit to load modules and install them globally. Calling modules with a callback.
+- 0.0.5: Published. Load model from file or directory. Copy File. Copy Directory. Local tasks in `ajgenesis/tasks` directory.
+Local modules in `ajgenesis/modules` directory.
 
 ## Contribution
 

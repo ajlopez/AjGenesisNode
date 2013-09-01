@@ -22,6 +22,14 @@ exports['copy directory'] = function (test) {
     });
 }
 
+exports['create directory'] = function (test) {
+    ajgenesis.createDirectory('test', 'ajgenesis3', 'models');
+    var target = path.join('test', 'ajgenesis3', 'models');
+    
+    test.ok(fs.existsSync(target));
+    removeDirSync(target);
+}
+
 function removeDirSync(dirname) {
     var filenames = fs.readdirSync(dirname);
     
