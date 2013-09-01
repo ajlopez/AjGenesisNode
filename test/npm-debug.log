@@ -1,0 +1,60 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'ajgenesisnode-module1',
+1 verbose cli   '-g' ]
+2 info using npm@1.2.18
+3 info using node@v0.10.4
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json C:\Users\Administrator\AppData\Roaming\npm\package.json
+6 verbose read json C:\Users\Administrator\AppData\Roaming\npm\package.json
+7 verbose cache add [ 'ajgenesisnode-module1', null ]
+8 verbose cache add name=undefined spec="ajgenesisnode-module1" args=["ajgenesisnode-module1",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: 'ajgenesisnode-module1',
+9 verbose parsed url   path: 'ajgenesisnode-module1',
+9 verbose parsed url   href: 'ajgenesisnode-module1' }
+10 silly lockFile 7c1abbfa-ajgenesisnode-module1 ajgenesisnode-module1
+11 verbose lock ajgenesisnode-module1 C:\Users\Administrator\AppData\Roaming\npm-cache\7c1abbfa-ajgenesisnode-module1.lock
+12 silly lockFile 7c1abbfa-ajgenesisnode-module1 ajgenesisnode-module1
+13 silly lockFile 7c1abbfa-ajgenesisnode-module1 ajgenesisnode-module1
+14 verbose addNamed [ 'ajgenesisnode-module1', '' ]
+15 verbose addNamed [ null, '' ]
+16 silly lockFile 2b9425df-ajgenesisnode-module1 ajgenesisnode-module1@
+17 verbose lock ajgenesisnode-module1@ C:\Users\Administrator\AppData\Roaming\npm-cache\2b9425df-ajgenesisnode-module1.lock
+18 silly addNameRange { name: 'ajgenesisnode-module1', range: '', hasData: false }
+19 verbose url raw ajgenesisnode-module1
+20 verbose url resolving [ 'https://registry.npmjs.org/', './ajgenesisnode-module1' ]
+21 verbose url resolved https://registry.npmjs.org/ajgenesisnode-module1
+22 info trying registry request attempt 1 at 16:45:52
+23 http GET https://registry.npmjs.org/ajgenesisnode-module1
+24 http 404 https://registry.npmjs.org/ajgenesisnode-module1
+25 silly registry.get cb [ 404,
+25 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+25 silly registry.get     date: 'Sun, 01 Sep 2013 19:45:51 GMT',
+25 silly registry.get     'content-type': 'application/json',
+25 silly registry.get     'content-length': '52',
+25 silly registry.get     'cache-control': 'must-revalidate' } ]
+26 silly lockFile 2b9425df-ajgenesisnode-module1 ajgenesisnode-module1@
+27 silly lockFile 2b9425df-ajgenesisnode-module1 ajgenesisnode-module1@
+28 error 404 'ajgenesisnode-module1' is not in the npm registry.
+28 error 404 You should bug the author to publish it
+28 error 404
+28 error 404 Note that you can also install from a
+28 error 404 tarball, folder, or http url, or git url.
+29 error System Windows_NT 6.0.6002
+30 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ajgenesisnode-module1" "-g"
+31 error cwd C:\Git\AjGenesisNode\test
+32 error node -v v0.10.4
+33 error npm -v 1.2.18
+34 error code E404
+35 verbose exit [ 1, true ]

@@ -1,6 +1,6 @@
 
 var ajgenesis = require('..'),
-    path = require('path'),
+    path = require('path'),    
     fs = require('fs');
 
 exports['Process simple model'] = function (test) {
@@ -79,5 +79,59 @@ exports['Process task with arguments'] = function (test) {
         test.done();
     });
 }
+
+exports['Process task with arguments'] = function (test) { 
+    test.async();
+    
+    var cwd = process.cwd();
+    
+    process.chdir('test');
+    
+    var model = { };
+
+    ajgenesis.process(model, ['name=Adam', 'age=800', 'simple', 1, 2], function (err, model) {
+        test.ok(model);
+        test.ok(model.name);
+        test.equal(model.name, 'Adam');
+        test.ok(model.age);
+        test.strictEqual(model.age, 800);
+        test.ok(model.args);
+        test.ok(Array.isArray(model.args));
+        test.equal(model.args.length, 2);
+        test.equal(model.args[0], 1);
+        test.equal(model.args[1], 2);
+        test.done();
+    });
+    
+    process.chdir(cwd);
+}
+
+exports['Process local module:verb with arguments'] = function (test) { 
+    test.async();
+    
+    var cwd = process.cwd();
+    
+    process.chdir('test');
+    
+    var model = { };
+
+    ajgenesis.process(model, ['name=Adam', 'age=800', 'module1:simple', 1, 2], function (err, model) {
+        test.ok(model);
+        test.ok(model.name);
+        test.equal(model.name, 'Adam');
+        test.ok(model.age);
+        test.strictEqual(model.age, 800);
+        test.ok(model.args);
+        test.ok(Array.isArray(model.args));
+        test.equal(model.args.length, 2);
+        test.equal(model.args[0], 1);
+        test.equal(model.args[1], 2);
+        test.done();
+    });
+    
+    process.chdir(cwd);
+}
+
+
 
 
