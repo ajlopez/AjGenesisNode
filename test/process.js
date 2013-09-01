@@ -1,64 +1,63 @@
 
 var ajgenesis = require('..'),
     path = require('path'),
-    fs = require('fs'),
-    assert = require('assert');
+    fs = require('fs');
 
-// Process simple model
-    
-var model = { };
+exports['Process simple model'] = function (test) {
+    var model = { };
 
-ajgenesis.process(model, [path.join('test', 'files', 'simplemodel.json')]);
+    ajgenesis.process(model, [path.join('test', 'files', 'simplemodel.json')]);
 
-assert.ok(model);
-assert.ok(model.title);
-assert.ok(model.author);
+    test.ok(model);
+    test.ok(model.title);
+    test.ok(model.author);
+}
 
-// Process two simple models
-    
-var model = { };
+exports['Process two simple models'] = function (test) {   
+    var model = { };
 
-ajgenesis.process(model, [path.join('test', 'files', 'simplemodel.json'), path.join('test', 'files', 'simpleproject.json')]);
+    ajgenesis.process(model, [path.join('test', 'files', 'simplemodel.json'), path.join('test', 'files', 'simpleproject.json')]);
 
-assert.ok(model);
-assert.ok(model.title);
-assert.ok(model.author);
-assert.ok(model.company);
-assert.ok(model.year);
+    test.ok(model);
+    test.ok(model.title);
+    test.ok(model.author);
+    test.ok(model.company);
+    test.ok(model.year);
+}
 
-// Process simple model with template and file
-    
-var model = { };
+exports['Process simple model with template and file'] = function (test) {
+    var model = { };
 
-if (!fs.existsSync('build'))
-    fs.mkdirSync('build');
+    if (!fs.existsSync('build'))
+        fs.mkdirSync('build');
 
-var targetname = path.join('build', 'simpletarget.txt');
+    var targetname = path.join('build', 'simpletarget.txt');
 
-if (fs.existsSync(targetname))
-    fs.unlinkSync(targetname);
+    if (fs.existsSync(targetname))
+        fs.unlinkSync(targetname);
 
-ajgenesis.process(model, [
-    path.join('test', 'files', 'simplemodel.json'), 
-    path.join('test', 'files', 'simpletemplate.tpl'),
-    targetname]);   
+    ajgenesis.process(model, [
+        path.join('test', 'files', 'simplemodel.json'), 
+        path.join('test', 'files', 'simpletemplate.tpl'),
+        targetname]);   
 
-assert.ok(model);
-assert.ok(model.title);
-assert.ok(model.author);
+    test.ok(model);
+    test.ok(model.title);
+    test.ok(model.author);
 
-assert.ok(fs.existsSync(targetname));
+    test.ok(fs.existsSync(targetname));
+}
 
-// Process simple model with name=value
-    
-var model = { };
+exports['Process simple model with name=value'] = function (test) { 
+    var model = { };
 
-ajgenesis.process(model, ['name=Adam', 'age=800']);
+    ajgenesis.process(model, ['name=Adam', 'age=800']);
 
-assert.ok(model);
-assert.ok(model.name);
-assert.equal(model.name, 'Adam');
-assert.ok(model.age);
-assert.strictEqual(model.age, 800);
+    test.ok(model);
+    test.ok(model.name);
+    test.equal(model.name, 'Adam');
+    test.ok(model.age);
+    test.strictEqual(model.age, 800);
+}
 
 

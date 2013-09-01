@@ -1,20 +1,25 @@
 
-var ajgenesis = require('../')
-  , assert = require('assert');
-  
-var result = ajgenesis.transform("Hello");
+var ajgenesis = require('../');
 
-assert.ok(result);
-assert.equal(result, "Hello");
+exports['Transform hello'] = function (test) {  
+    var result = ajgenesis.transform("Hello");
 
-var result = ajgenesis.transform("Hello ${name}", { name: 'Adam' });
+    test.ok(result);
+    test.equal(result, "Hello");
+}
 
-assert.ok(result);
-assert.equal(result, "Hello Adam");
-  
-var result = ajgenesis.transform("<# for (var k = 1; k <= 3; k++) { #>\
+exports['Transform hello with name'] = function (test) {
+    var result = ajgenesis.transform("Hello ${name}", { name: 'Adam' });
+
+    test.ok(result);
+    test.equal(result, "Hello Adam");
+}
+
+exports['Transform with for'] = function (test) { 
+    var result = ajgenesis.transform("<# for (var k = 1; k <= 3; k++) { #>\
 ${k}\
 <# } #>");
 
-assert.ok(result);
-assert.equal(result, "123");
+    test.ok(result);
+    test.equal(result, "123");
+}
