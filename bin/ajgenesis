@@ -3,9 +3,15 @@
 "use strict";
 
 var ajgenesis = require('ajgenesis'),
+    fs = require('fs'),
     path = require('path');
 
 var model = { };
+
+var modelspath = path.join(process.cwd(), 'models');
+
+if (fs.existsSync(modelspath))
+    model = ajgenesis.loadModel(modelspath);
 
 ajgenesis.process(model, process.argv.slice(2), function (err, result) {
     if (err)
