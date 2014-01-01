@@ -38,6 +38,7 @@ TBD
 - 0.0.5: Published. Load model from file or directory. Copy File. Copy Directory. Local tasks in `ajgenesis/tasks` directory.
 Local modules in `ajgenesis/modules` directory.
 - 0.0.6: Published. Global command loads model from `models` directory if exists.
+- 0.0.7: Published. Fix bug in load model from directory.
 
 ## Contribution
 
