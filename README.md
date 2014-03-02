@@ -39,6 +39,7 @@ TBD
 Local modules in `ajgenesis/modules` directory.
 - 0.0.6: Published. Global command loads model from `models` directory if exists.
 - 0.0.7: Published. Fix bug in load model from directory.
+- 0.0.8: Published. Fix bug in bin, and weird \r\n issue, removed to \n, for Linux
 
 ## Contribution
 

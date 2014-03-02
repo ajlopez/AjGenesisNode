@@ -2,9 +2,12 @@
 
 "use strict";
 
-var ajgenesis = require('ajgenesis'),
-    fs = require('fs'),
+var fs = require('fs'),
     path = require('path');
+    
+var libpath = path.join(path.dirname(fs.realpathSync(__filename)), '../lib/ajgenesis.js');
+
+var ajgenesis = require(libpath);
 
 var model = { };
 
