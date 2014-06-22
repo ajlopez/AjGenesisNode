@@ -14,8 +14,7 @@
     "ajgennode": "./bin/ajgenesis"
   }
 , "dependencies": {
-    "simpletpl": "0.0.2",
-    "node-uuid": ">= 1.3.3"
+    "simpletpl": "0.0.2"
   }
 , "devDependencies": {
     "simpleunit": "0.0.4"
