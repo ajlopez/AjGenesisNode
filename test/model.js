@@ -25,6 +25,22 @@ exports['load model from directory'] = function (test) {
     test.equal(model.entities[1].description, 'Supplier');
 }
 
+exports['load fulll model from default folder'] = function (test) {
+    var cwd = process.cwd();
+    process.chdir(__dirname);
+    
+    try {
+        var model = ajgenesis.loadModel();
+        
+        test.ok(model);
+        test.equal(model.name, 'customer');
+        test.equal(model.title, 'Customer');
+    }
+    finally {    
+        process.chdir(cwd);
+    }
+}
+
 exports['load model from current default folder'] = function (test) {
     var cwd = process.cwd();
     process.chdir(__dirname);

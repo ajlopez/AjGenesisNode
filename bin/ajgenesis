@@ -9,12 +9,7 @@ var libpath = path.join(path.dirname(fs.realpathSync(__filename)), '../lib/ajgen
 
 var ajgenesis = require(libpath);
 
-var model = { };
-
-var modelspath = path.join(process.cwd(), 'ajgenesis', 'models');
-
-if (fs.existsSync(modelspath))
-    model = ajgenesis.loadModel(modelspath);
+var model = ajgenesis.loadModel();
 
 ajgenesis.process(model, process.argv.slice(2), function (err, result) {
     if (err)
