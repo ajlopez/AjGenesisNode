@@ -32,3 +32,22 @@ exports['Transform dummy template to dummy file without overwrite'] = function (
     test.equal(stats1.mtime.toString(), stats2.mtime.toString());
 }
 
+exports['Preserve file'] = function (test) {  
+    var source = path.join(__dirname, 'files', 'dummy.js.tpl');
+    var target = path.join(__dirname, 'files', 'preserve.js');
+    
+    test.ok(fs.existsSync(target));
+    var stats1 = fs.statSync(target);
+
+    ajgenesis.fileTransform(source, target, { });
+    
+    test.ok(fs.existsSync(target));
+    var stats2 = fs.statSync(target);
+    
+    test.equal(stats1.mtime.toString(), stats2.mtime.toString());
+    
+    var content = fs.readFileSync(target).toString();
+    
+    test.ok(content.indexOf('ajgenesis file preserve') >= 0);
+}
+
