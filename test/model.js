@@ -40,3 +40,26 @@ exports['load model from current default folder'] = function (test) {
         process.chdir(cwd);
     }
 }
+
+exports['save model to current default folder'] = function (test) {
+    var cwd = process.cwd();
+    process.chdir(__dirname);
+    
+    try {
+        var target = path.join('ajgenesis', 'models', 'mycustomer.json');
+        test.ok(!fs.existsSync(target));
+        
+        ajgenesis.saveModel('mycustomer', { name: 'customer', title: 'Customer' });
+        
+        var model = ajgenesis.loadModel('mycustomer');
+        test.ok(model);
+        test.equal(model.name, 'customer');
+        test.equal(model.title, 'Customer');
+        
+        test.ok(fs.existsSync(target));
+        fs.unlinkSync(target);
+    }
+    finally {    
+        process.chdir(cwd);
+    }
+}
