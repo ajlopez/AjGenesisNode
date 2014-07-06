@@ -51,3 +51,23 @@ exports['Preserve file'] = function (test) {
     test.ok(content.indexOf('ajgenesis file preserve') >= 0);
 }
 
+exports['Preserve regions'] = function (test) {  
+    var source = path.join(__dirname, 'files', 'regions.js.tpl');
+    var target = path.join(__dirname, 'files', 'regions.js');
+    
+    test.ok(fs.existsSync(target));
+
+    ajgenesis.fileTransform(source, target, { project: 'myproject', func: 'bar' });
+    
+    test.ok(fs.existsSync(target));
+    
+    var content = fs.readFileSync(target).toString();
+    
+    test.ok(content.indexOf('ajgenesis region one') >= 0);
+    test.ok(content.indexOf('ajgenesis region two') >= 0);
+    test.ok(content.indexOf('console.log("Region one")') >= 0);
+    test.ok(content.indexOf('console.log("Region two")') >= 0);
+    test.ok(content.indexOf('function bar') >= 0);
+    test.ok(content.indexOf('var myproject') >= 0);
+    test.ok(content.indexOf('foo: foo') >= 0);
+}
