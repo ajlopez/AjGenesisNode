@@ -69,5 +69,5 @@ exports['Preserve regions'] = function (test) {
     test.ok(content.indexOf('console.log("Region two")') >= 0);
     test.ok(content.indexOf('function bar') >= 0);
     test.ok(content.indexOf('var myproject') >= 0);
-    test.ok(content.indexOf('foo: foo') >= 0);
+    test.ok(content.indexOf('bar: bar') >= 0);
 }

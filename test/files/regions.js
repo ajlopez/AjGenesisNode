@@ -1,6 +1,6 @@
 
 var express = require('express');
-var project = require('project');
+var myproject = require('myproject');
 
 // ajgenesis region one
 
@@ -8,7 +8,7 @@ console.log("Region one");
 
 // ajgenesis region end
 
-function foo() {
+function bar() {
 }
 
 // ajgenesis region two
@@ -19,5 +19,5 @@ console.log("Region two");
 
 
 module.exports = {
-    foo: foo
+    bar: bar
 }
