@@ -79,3 +79,57 @@ exports['save model to current default folder'] = function (test) {
         process.chdir(cwd);
     }
 }
+
+exports['get model directory from current directory'] = function (test) {
+    var modeldir = ajgenesis.getModelDirectory();
+    var dir = path.join('ajgenesis', 'models');
+    
+    test.equal(path.resolve(modeldir), path.resolve(dir));
+}
+
+exports['get model directory from test directory'] = function (test) {
+    var modeldir = ajgenesis.getModelDirectory('test');
+    var dir = path.join('test', 'ajgenesis', 'models');
+    
+    test.equal(path.resolve(modeldir), path.resolve(dir));
+}
+
+exports['create model directory'] = function (test) {
+    ajgenesis.createDirectory('test', 'ajgenesis4');
+    var dir = path.join('test', 'ajgenesis4');
+    
+    ajgenesis.createModelDirectory(dir);
+    test.ok(fs.existsSync(path.join('test', 'ajgenesis4', 'ajgenesis', 'models')));
+    removeDirSync(path.join('test', 'ajgenesis4'));
+}
+
+function removeDirSync(dirname) {
+    var filenames = fs.readdirSync(dirname);
+    
+    filenames.forEach(function (filename) {
+        filename = path.join(dirname, filename);
+        
+        if (isDirectory(filename))
+            removeDirSync(filename);
+        else
+            removeFileSync(filename);
+    });
+    
+    fs.rmdirSync(dirname);
+}
+
+function removeFileSync(filename) {
+    fs.unlinkSync(filename);
+}
+
+function isDirectory(filename)
+{
+    try {
+        var stats = fs.lstatSync(filename);
+        return stats.isDirectory();
+    }
+    catch (err)
+    {
+        return false;
+    }
+}

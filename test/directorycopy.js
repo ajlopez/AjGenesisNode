@@ -28,6 +28,7 @@ exports['create directory'] = function (test) {
     
     test.ok(fs.existsSync(target));
     removeDirSync(target);
+    removeDirSync(path.join('test', 'ajgenesis3'));
 }
 
 function removeDirSync(dirname) {
