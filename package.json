@@ -11,12 +11,13 @@
   }
 , "bin": {
     "ajgenesis": "./bin/ajgenesis",
-    "ajgennode": "./bin/ajgenesis"
+    "ajgennode": "./bin/ajgenesis",
+    "ajg": "./bin/ajgenesis"
   }
 , "dependencies": {
     "simpletpl": "0.0.2"
   }
 , "devDependencies": {
-    "simpleunit": "0.0.4"
+    "simpleunit": "0.0.6"
   }
 }

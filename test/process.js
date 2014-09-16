@@ -1,7 +1,8 @@
 
-var ajgenesis = require('..'),
-    path = require('path'),    
-    fs = require('fs');
+var ajgenesis = require('..');
+var path = require('path');
+var fs = require('fs');
+var fsutils = require('./utils/fsutils');
 
 exports['Process simple model'] = function (test) {
     var model = { };
@@ -130,6 +131,35 @@ exports['Process local module:verb with arguments'] = function (test) {
     });
     
     process.chdir(cwd);
+}
+
+exports['Process unknown task'] = function (test) {
+    test.async();
+    
+    var model = { };
+    
+    ajgenesis.process(model, ['unknown'], function (err, model) {
+        test.ok(err);
+        test.done();
+    });
+}
+
+exports['Process install task'] = function (test) { 
+    test.async(120000);
+    
+    var cwd = process.cwd();
+    
+    process.chdir('test');
+    fsutils.removeDirectory('node_modules');
+    
+    var model = { };
+
+    ajgenesis.process(model, ['install', 'hello'], function (err, model) {
+        test.ok(!err);
+        require('ajgenesisnode-hello');
+        process.chdir(cwd);
+        test.done();
+    });
 }
 
 
