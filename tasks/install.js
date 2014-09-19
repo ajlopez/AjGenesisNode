@@ -17,17 +17,34 @@ function runCommand(cmd, cb) {
 }
 
 function installModule(modulename, cb) {
-    var cmd = 'npm install ajgenesisnode-' + modulename;
+    var cmd = 'npm install ' + modulename;
     runCommand(cmd, cb);
 }
 
 module.exports = function (model, args, ajgenesis, cb) {
-    var modulename = args[0];
+    var modulename = 'ajgenesisnode-' + args[0];
+    var module;
     
-    var dirname = path.join('.', 'node-modules', 'ajgenesisnode-' + modulename);
-    
-    if (!fs.existsSync(dirname))
-        installModule(modulename, cb);
-    else
-        cb(null, null);
+    try {
+        module = require(modulename);
+        doInstall(null, null);
+    }
+    catch (ex) {
+        installModule(modulename, doInstall);
+    }
+        
+    function doInstall(err, data) {
+        if (err) {
+            cb(err, null);
+            return;
+        }
+        
+        if (!module)
+            module = require(modulename);
+
+        if (module.install)
+            module.install(ajgenesis, cb);
+        else
+            cb(null, null);
+    }
 }

@@ -147,17 +147,16 @@ exports['Process unknown task'] = function (test) {
 exports['Process install task'] = function (test) { 
     test.async(120000);
     
-    var cwd = process.cwd();
-    
-    process.chdir('test');
-    fsutils.removeDirectory('node_modules');
+    fsutils.removeDirectory(path.join('node_modules', 'ajgenesisnode-hello'));
+    fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'hello'));
     
     var model = { };
 
     ajgenesis.process(model, ['install', 'hello'], function (err, model) {
         test.ok(!err);
         require('ajgenesisnode-hello');
-        process.chdir(cwd);
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'hello', 'readme.txt')));
+        fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'hello'));
         test.done();
     });
 }
