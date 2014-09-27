@@ -40,7 +40,12 @@ module.exports = function (model, args, ajgenesis, cb) {
         }
         
         if (!module)
-            module = require(modulename);
+            try {
+                module = require(modulename);
+            }
+            catch (ex) {
+                module = require(path.join(process.cwd(), 'node_modules', modulename));
+            }
 
         if (module.install)
             module.install(ajgenesis, cb);
