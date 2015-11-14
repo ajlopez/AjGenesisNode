@@ -44,6 +44,7 @@ Local modules in `ajgenesis/modules` directory.
 - 0.0.10: Published. Use of `ajgenesis/models`. Support `ajgenesis file preserve`. Remove `runit` and `node-uuid` dependencies
 - 0.0.11: Published. Preserve regions by name. createModelDirectory, getModelDirectory
 - 0.0.12: Published. Install method
+- 0.0.13: Published. Using simplejson to load model
 
 ## Contribution
 

@@ -1,11 +1,11 @@
 { "name": "ajgenesis"
 , "description": "AjGenesis Code Generation"
 , "keywords": [ "codegeneration", "nodejs" ]
-, "version": "0.0.12"
+, "version": "0.0.13"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/AjGenesisNode.git" }
 , "main": "./lib/ajgenesis.js"
-, "engines": { "node": ">= 0.6.0 && < 0.13.0" }
+, "engines": { "node": ">= 0.10.0" }
 , "scripts": {
     "test": "simpleunit ./test"
   }
