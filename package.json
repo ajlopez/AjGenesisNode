@@ -15,7 +15,8 @@
     "ajg": "./bin/ajgenesis"
   }
 , "dependencies": {
-    "simpletpl": "0.0.2"
+    "simpletpl": "0.0.2",
+    "simplejson": "0.0.2"
   }
 , "devDependencies": {
     "simpleunit": "0.0.6"

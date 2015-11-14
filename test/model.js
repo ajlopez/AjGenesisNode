@@ -14,15 +14,15 @@ exports['load model from directory'] = function (test) {
     var model = ajgenesis.loadModel(path.join(__dirname, 'model'));
     
     test.ok(model);
-    test.equal(model.name, "project");
-    test.equal(model.description, "project description");
+    test.equal(model.project.name, "project");
+    test.equal(model.project.description, "project description");
     test.ok(model.entities);
-    test.ok(Array.isArray(model.entities));
-    test.equal(model.entities.length, 2);
-    test.equal(model.entities[0].name, 'customer');
-    test.equal(model.entities[0].description, 'Customer');
-    test.equal(model.entities[1].name, 'supplier');
-    test.equal(model.entities[1].description, 'Supplier');
+    test.ok(model.entities.customer);
+    test.ok(model.entities.supplier);
+    test.equal(model.entities.customer.name, 'customer');
+    test.equal(model.entities.customer.description, 'Customer');
+    test.equal(model.entities.supplier.name, 'supplier');
+    test.equal(model.entities.supplier.description, 'Supplier');
 }
 
 exports['load fulll model from default folder'] = function (test) {
@@ -33,8 +33,9 @@ exports['load fulll model from default folder'] = function (test) {
         var model = ajgenesis.loadModel();
         
         test.ok(model);
-        test.equal(model.name, 'customer');
-        test.equal(model.title, 'Customer');
+        test.ok(model.customer);
+        test.equal(model.customer.name, 'customer');
+        test.equal(model.customer.title, 'Customer');
     }
     finally {    
         process.chdir(cwd);
