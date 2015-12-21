@@ -5,7 +5,7 @@ var fs = require('fs');
 
 exports['Transform hello template to hello file'] = function (test) {  
     var builddir = path.join(__dirname, 'build');
-    ajgenesis.createDirectory(builddir);
+    ajgenesis.fs.createDirectory(builddir);
     
     var source = path.join(__dirname, 'files', 'hello.js.tpl');
     var target = path.join(builddir, 'hello.js');

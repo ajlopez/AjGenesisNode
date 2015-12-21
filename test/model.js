@@ -96,7 +96,7 @@ exports['get model directory from test directory'] = function (test) {
 }
 
 exports['create model directory'] = function (test) {
-    ajgenesis.createDirectory('test', 'ajgenesis4');
+    ajgenesis.fs.createDirectory('test', 'ajgenesis4');
     var dir = path.join('test', 'ajgenesis4');
     
     ajgenesis.createModelDirectory(dir);
