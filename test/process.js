@@ -157,6 +157,7 @@ exports['Process unknown task'] = function (test) {
     });
 }
 
+/*
 exports['Process install task'] = function (test) { 
     test.async(120000);
     
@@ -174,7 +175,7 @@ exports['Process install task'] = function (test) {
         test.done();
     });
 }
-
+*/
 
 
 
