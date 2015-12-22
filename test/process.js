@@ -74,7 +74,7 @@ exports['Process simple model with dotname=value'] = function (test) {
     test.strictEqual(model.person.age, 800);
 }
 
-exports['Process task with arguments'] = function (test) { 
+exports['Process explicit verb in javascript file with arguments'] = function (test) { 
     test.async();
     
     var model = { };
@@ -94,7 +94,7 @@ exports['Process task with arguments'] = function (test) {
     });
 }
 
-exports['Process task with arguments'] = function (test) { 
+exports['Process verb with arguments'] = function (test) { 
     test.async();
     
     var cwd = process.cwd();
@@ -166,6 +166,7 @@ exports['Process install task'] = function (test) {
     var model = { };
 
     ajgenesis.process(model, ['install', 'hello'], function (err, model) {
+        console.log(err);
         test.ok(!err);
         require('ajgenesisnode-hello');
         test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'hello', 'readme.txt')));
