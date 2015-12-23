@@ -1,4 +1,5 @@
 node_modules
 build
-
-
+/ajgenesis/models
+/ajgenesis/modules/module1
+/ajgenesis/modules/module2
