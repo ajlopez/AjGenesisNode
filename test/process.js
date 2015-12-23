@@ -157,25 +157,32 @@ exports['Process unknown task'] = function (test) {
     });
 }
 
-/*
-exports['Process install task'] = function (test) { 
-    test.async(120000);
-    
-    fsutils.removeDirectory(path.join('node_modules', 'ajgenesisnode-hello'));
-    fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'hello'));
+exports['Process install task module1'] = function (test) { 
+    fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'module1'));
     
     var model = { };
 
-    ajgenesis.process(model, ['install', 'hello'], function (err, model) {
-        console.log(err);
+    ajgenesis.process(model, ['install', 'module1'], function (err, model) {
         test.ok(!err);
-        require('ajgenesisnode-hello');
-        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'hello', 'readme.txt')));
-        fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'hello'));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'module1', 'readme.txt')));
+        fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'module1'));
         test.done();
     });
 }
-*/
+
+exports['Process install task module2'] = function (test) { 
+    fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'module2'));
+    
+    var model = { };
+
+    ajgenesis.process(model, ['install', 'module2'], function (err, model) {
+        test.ok(!err);
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'module2', 'readme.txt')));
+        fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'module2'));
+        test.done();
+    });
+}
+
 
 
 

@@ -2,54 +2,38 @@
 var path = require('path');
 var fs = require('fs');
 
-// from http://krasimirtsonev.com/blog/article/Nodejs-managing-child-processes-starting-stopping-exec-spawn
-function runCommand(cmd, cb) {
-    var exec = require('child_process').exec;
-
-    var child = exec(cmd);
-    
-    child.stdout.pipe(process.stdout);
-    child.stderr.pipe(process.stderr);
-
-    child.on('close', function(code) {
-        cb(code, null);
-    });
-}
-
-function installModule(modulename, cb) {
-    var cmd = 'npm install ' + modulename;
-    runCommand(cmd, cb);
+function install(ajgenesis, dirname, cb) {
+    try {
+        ajgenesis.fs.createDirectory('ajgenesis');
+        ajgenesis.fs.copyDirectory(path.join(dirname, 'ajgenesis'), 'ajgenesis', cb);
+    }
+    catch (err) {
+        cb(err, null);
+    }
 }
 
 module.exports = function (model, args, ajgenesis, cb) {
-    var modulename = 'ajgenesisnode-' + args[0];
-    var module;
+    var oldfoldername = null;
+    var foldername = __dirname;
+    var module = args[0];
     
-    try {
-        module = require(modulename);
-        doInstall(null, null);
-    }
-    catch (ex) {
-        installModule(modulename, doInstall);
-    }
+    if (!module)
+        return cb("A module name is required", null);
+    
+    while (foldername && foldername != oldfoldername) {
+        var filename = path.join(foldername, 'ajgenesisnode-' + module);
         
-    function doInstall(err, data) {
-        if (err) {
-            cb(err, null);
-            return;
-        }
-        
-        if (!module)
-            try {
-                module = require(modulename);
-            }
-            catch (ex) {
-                module = require(path.join(process.cwd(), 'node_modules', modulename));
-            }
+        if (ajgenesis.fs.exists(filename))
+            return install(ajgenesis, filename, cb);
 
-        if (module.install)
-            module.install(ajgenesis, cb);
-        else
-            cb(null, null);
+        var filename = path.join(foldername, 'ajgenesis-' + module);
+        
+        if (ajgenesis.fs.exists(filename))
+            return install(ajgenesis, filename, cb);
+
+        oldfoldername = foldername;                
+        foldername = path.resolve(path.join(foldername, '..'));
     }
+    
+    cb("Unknown module '" + module + "'", null);
 }
