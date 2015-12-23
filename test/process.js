@@ -177,6 +177,7 @@ exports['Process install task module2'] = function (test) {
 
     ajgenesis.process(model, ['install', 'module2'], function (err, model) {
         test.ok(!err);
+        test.ok(fs.existsSync(path.join('ajgenesis', 'models')));
         test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'module2', 'readme.txt')));
         fsutils.removeDirectory(path.join('ajgenesis', 'modules', 'module2'));
         test.done();

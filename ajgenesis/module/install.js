@@ -5,6 +5,7 @@ var fs = require('fs');
 function install(ajgenesis, dirname, cb) {
     try {
         ajgenesis.fs.createDirectory('ajgenesis');
+        ajgenesis.createModelDirectory();
         ajgenesis.fs.copyDirectory(path.join(dirname, 'ajgenesis'), 'ajgenesis', cb);
     }
     catch (err) {
