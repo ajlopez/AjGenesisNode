@@ -2,11 +2,15 @@
 var path = require('path');
 var fs = require('fs');
 
-function install(ajgenesis, dirname, cb) {
+function install(model, ajgenesis, dirname, cb) {
     try {
         ajgenesis.fs.createDirectory('ajgenesis');
         ajgenesis.createModelDirectory();
-        ajgenesis.fs.copyDirectory(path.join(dirname, 'ajgenesis'), 'ajgenesis', cb);
+        ajgenesis.fs.copyDirectory(path.join(dirname, 'ajgenesis'), 'ajgenesis', function (err, data) {
+            if (err)
+                return cb(err, null);
+            return cb(null, model);
+        });
     }
     catch (err) {
         cb(err, null);
@@ -25,12 +29,12 @@ module.exports = function (model, args, ajgenesis, cb) {
         var filename = path.join(foldername, 'ajgenesisnode-' + module);
         
         if (ajgenesis.fs.exists(filename))
-            return install(ajgenesis, filename, cb);
+            return install(model, ajgenesis, filename, cb);
 
         var filename = path.join(foldername, 'ajgenesis-' + module);
         
         if (ajgenesis.fs.exists(filename))
-            return install(ajgenesis, filename, cb);
+            return install(model, ajgenesis, filename, cb);
 
         oldfoldername = foldername;                
         foldername = path.resolve(path.join(foldername, '..'));
