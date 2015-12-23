@@ -176,7 +176,7 @@ exports['Process install task module2'] = function (test) {
     var model = { };
 
     ajgenesis.process(model, ['install', 'module2'], function (err, model) {
-        test.ok(!err);
+        test.ok(!err);  
         test.ok(model);
         test.ok(fs.existsSync(path.join('ajgenesis', 'models')));
         test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'module2', 'readme.txt')));
