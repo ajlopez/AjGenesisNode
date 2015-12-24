@@ -45,6 +45,7 @@ Local modules in `ajgenesis/modules` directory.
 - 0.0.11: Published. Preserve regions by name. createModelDirectory, getModelDirectory
 - 0.0.12: Published. Install method
 - 0.0.13: Published. Using simplejson to load model
+- 0.0.14: Published. New install verb. New ajgenesis.fs, ajgenesis.modules functions
 
 ## Contribution
 

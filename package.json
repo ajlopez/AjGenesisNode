@@ -1,7 +1,7 @@
 { "name": "ajgenesis"
 , "description": "AjGenesis Code Generation"
 , "keywords": [ "codegeneration", "nodejs" ]
-, "version": "0.0.13"
+, "version": "0.0.14"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/AjGenesisNode.git" }
 , "main": "./lib/ajgenesis.js"
